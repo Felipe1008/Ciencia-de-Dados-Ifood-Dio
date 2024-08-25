@@ -9,8 +9,8 @@ Projetos: Projetos práticos desenvolvidos ao longo do curso, aplicando os conce
 Resumos e Anotações: Resumos dos conteúdos teóricos e anotações das aulas para facilitar a revisão.
 
 ## Estrutura do Repositório
-- exercicios/: Códigos e soluções dos exercícios realizados durante as aulas.
-- projetos/: Projetos completos, com código-fonte, documentação e análises.
+- exercicio/: Códigos e soluções dos exercícios realizados durante as aulas.
+- projeto/: Projetos completos, com código-fonte, documentação e análises.
 
 ## Objetivos
 - Consolidar Conhecimentos: Usar este repositório como uma ferramenta para consolidar e revisar o conteúdo aprendido.
