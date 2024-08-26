@@ -5,32 +5,24 @@
 
 ## Principais Entidades e Relacionamentos:
 
-- Cliente:
--- Armazena informações dos clientes da oficina, incluindo dados pessoais como nome, CPF, CNPJ (para clientes PJ), data de nascimento e informações de contato.
+- Cliente: Armazena informações dos clientes da oficina, incluindo dados pessoais como nome, CPF, CNPJ (para clientes PJ), data de nascimento e informações de contato.
 
-- Veículo:
--- Registra detalhes dos veículos pertencentes aos clientes, como placa, modelo, ano, e uma referência ao proprietário (cliente). Esse relacionamento é crucial para vincular os serviços realizados a veículos específicos.
+- Veículo: Registra detalhes dos veículos pertencentes aos clientes, como placa, modelo, ano, e uma referência ao proprietário (cliente). Esse relacionamento é crucial para vincular os serviços realizados a veículos específicos.
 
-- Ordem de Serviço:
--- Representa o coração do sistema, registrando todas as ordens de serviço geradas pela oficina. Cada ordem de serviço pode estar associada a um ou mais serviços específicos (como troca de óleo, balanceamento, etc.), um cliente e seu respectivo veículo. Também inclui informações sobre o valor total da ordem e o status do serviço.
+- Ordem de Serviço: Representa o coração do sistema, registrando todas as ordens de serviço geradas pela oficina. Cada ordem de serviço pode estar associada a um ou mais serviços específicos (como troca de óleo, balanceamento, etc.), um cliente e seu respectivo veículo. Também inclui informações sobre o valor total da ordem e o status do serviço.
 
-- Serviço:
--- Define os diferentes tipos de serviços que a oficina oferece. Através de uma tabela associativa (Servicos_por_Ordem), cada ordem de serviço pode estar associada a múltiplos serviços, refletindo a realidade de que mais de um tipo de serviço pode ser realizado em um único atendimento.
+- Serviço: Define os diferentes tipos de serviços que a oficina oferece. Através de uma tabela associativa (Servicos_por_Ordem), cada ordem de serviço pode estar associada a múltiplos serviços, refletindo a realidade de que mais de um tipo de serviço pode ser realizado em um único atendimento.
 
-- Mecânico:
--- Registra os mecânicos que trabalham na oficina, incluindo informações pessoais e profissionais, como telefone e salário. Uma tabela associativa (Mecanicos_no_Servico) permite associar múltiplos mecânicos a diferentes ordens de serviço, garantindo o controle sobre quem realizou quais serviços.
+- Mecânico: Registra os mecânicos que trabalham na oficina, incluindo informações pessoais e profissionais, como telefone e salário. Uma tabela associativa (Mecanicos_no_Servico) permite associar múltiplos mecânicos a diferentes ordens de serviço, garantindo o controle sobre quem realizou quais serviços.
 
-- Produto:
--- Detalha os produtos utilizados nos serviços, armazenando informações como descrição, valor e quantidade disponível em estoque. Uma tabela associativa (Produtos_por_Servico) rastreia quais produtos foram usados em cada serviço, além de associar fornecedores aos produtos.
+- Produto: Detalha os produtos utilizados nos serviços, armazenando informações como descrição, valor e quantidade disponível em estoque. Uma tabela associativa (Produtos_por_Servico) rastreia quais produtos foram usados em cada serviço, além de associar fornecedores aos produtos.
 
-- Fornecedor:
--- Contém informações sobre os fornecedores dos produtos, incluindo nome, CNPJ e dados de contato. Relaciona-se com a tabela de produtos através de uma tabela associativa (Produto_por_Fornecedor), possibilitando o rastreamento de origem dos produtos.
+- Fornecedor: Contém informações sobre os fornecedores dos produtos, incluindo nome, CNPJ e dados de contato. Relaciona-se com a tabela de produtos através de uma tabela associativa (Produto_por_Fornecedor), possibilitando o rastreamento de origem dos produtos.
 
 - Estoque:
 -- Gerencia o inventário de produtos disponíveis na oficina. Cada registro de produto inclui a quantidade em estoque, permitindo um controle rigoroso dos materiais disponíveis para o uso nos serviços.
 
-- Pagamento:
--- Registra os pagamentos realizados pelos clientes. Cada pagamento é associado a uma ordem de serviço e inclui detalhes como método de pagamento e o valor pago.
+- Pagamento: Registra os pagamentos realizados pelos clientes. Cada pagamento é associado a uma ordem de serviço e inclui detalhes como método de pagamento e o valor pago.
 
 ## Funcionalidades do Sistema:
 
