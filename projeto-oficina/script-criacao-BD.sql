@@ -1,5 +1,5 @@
-CREATE DATABASE oficina;
-use oficina;
+/*CREATE DATABASE oficina;
+use oficina;*/
 
 CREATE TABLE Cliente(
 	idCliente int primary key auto_increment,
@@ -7,10 +7,12 @@ CREATE TABLE Cliente(
     sobrenome varchar(45) not null,
     cpf char(11) unique,
     cnpj char(15) unique,
-    tipoCliente ENUM("PF", "PJ"),
+    tipoCliente ENUM("PF", "PJ") not null,
     dataNascimento date,
     contato varchar(45) not null,
-    endereco varchar(100),
+    cep char(8) not null,
+    estado char(2) not null,
+    
     
 	CONSTRAINT check_tipoCliente CHECK(
 		(tipoCliente = "PF" AND cpf is not null AND cnpj is null) OR
@@ -29,6 +31,8 @@ CREATE TABLE Veiculo(
     CONSTRAINT fk_veiculo_cliente FOREIGN KEY(idCliente) REFERENCES Cliente(idCliente)
 );
 
+ALTER TABLE Veiculo ADD COLUMN marca varchar(50) not null;
+
 CREATE TABLE Fornecedor(
 	idFornecedor int primary key auto_increment,
 	cnpj char(15) not null unique,
@@ -45,7 +49,7 @@ CREATE TABLE Produto(
 	idProduto int primary key auto_increment,
     idEstoque int,
     nomeProduto varchar(50) not null,
-    tipoProduto ENUM("Pneu", "Farol", "Lampada", "Bobina Ignicao", "Bico Injetor", "Aditivo", "Lubrificante") not null,
+    tipoProduto ENUM("Pneu", "Farol", "Lampada", "Bobina Ignicao", "Bico Injetor", "Aditivo", "Lubrificante", "Diversos") not null,
     valorVendaProduto float,
     custoCompraProduto float,
     
@@ -104,11 +108,12 @@ CREATE TABLE Mecanico_por_OrdemServico(
 CREATE TABLE Produto_por_OrdemServico(
 	idProduto int,
     idOrdemServico int,
-    quantidade int not null default 1,
+    quantidade int default 1,
     primary key(idProduto, idOrdemServico),
 	constraint fk_produto_ordemServico_ordemServico foreign key(idOrdemServico) references OrdemServico(idOrdemServico),
 	constraint fk_produto_ordemServico_produto foreign key(idProduto) references Produto(idProduto)
 );
+
 
 CREATE TABLE Pagamento(
 	idPagamento int primary key auto_increment,
