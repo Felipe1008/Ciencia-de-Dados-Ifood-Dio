@@ -19,8 +19,7 @@
 
 - Fornecedor: Contém informações sobre os fornecedores dos produtos, incluindo nome, CNPJ e dados de contato. Relaciona-se com a tabela de produtos através de uma tabela associativa (Produto_por_Fornecedor), possibilitando o rastreamento de origem dos produtos.
 
-- Estoque:
--- Gerencia o inventário de produtos disponíveis na oficina. Cada registro de produto inclui a quantidade em estoque, permitindo um controle rigoroso dos materiais disponíveis para o uso nos serviços.
+- Estoque: Gerencia o inventário de produtos disponíveis na oficina. Cada registro de produto inclui a quantidade em estoque, permitindo um controle rigoroso dos materiais disponíveis para o uso nos serviços.
 
 - Pagamento: Registra os pagamentos realizados pelos clientes. Cada pagamento é associado a uma ordem de serviço e inclui detalhes como método de pagamento e o valor pago.
 
