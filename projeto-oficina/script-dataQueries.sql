@@ -19,7 +19,7 @@ FROM
 WHERE
 	os.statusServico = "Em Andamento";
     
--- Consultando todos produtos adquiridos dos fornecedores e seus respectivos custos de compra]
+-- Consultando todos produtos adquiridos dos fornecedores e seus respectivos custos de compra
 SELECT 
 	f.nome,
     pf.quantidade,
@@ -36,5 +36,19 @@ SELECT
 	ROUND(((valorVendaProduto - custoCompraProduto)/custoCompraProduto)*100, 2) as MargemLucro
 FROM 
 	produto
-	
+ORDER BY 
+	MargemLucro DESC;
+
+-- Consultando total de produtos em estoque onde o número de produtos em estoque é maior que 10
+SELECT 
+    p.nomeProduto,
+    SUM(e.quantidadeProduto) as totalProdutos
+FROM 
+    Produto p 
+    INNER JOIN Estoque e ON p.idEstoque = e.idEstoque
+GROUP BY 
+    p.nomeProduto
+HAVING 
+    totalProdutos > 10;
+
     
